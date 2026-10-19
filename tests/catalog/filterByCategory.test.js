@@ -26,7 +26,16 @@ describe("filterByCategory", () => {
     const result = filterByCategory(products, "home");
     expect(result.map((products) => products.id)).toEqual([4, 5]);
   });
-  test.todo("'clothes' возвращает пустой массив");
-  test.todo("'toys' возвращает пустой массив");
-  test.todo("'sports' возвращает пустой массив");
+  test("'clothes' возвращает пустой массив", () => {
+    const result = filterByCategory(products, "clothes");
+    expect(result.map((products) => products.id)).toEqual([]);
+  });
+  test("'toys' возвращает пустой массив", () => {
+    const result = filterByCategory(products, "toys");
+    expect(result.map((products) => products.id)).toEqual([]);
+  });
+  test("'sports' возвращает пустой массив", () => {
+    const result = filterByCategory(products, "sports");
+    expect(result.map((products) => products.id)).toEqual([]);
+  });
 });
