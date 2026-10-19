@@ -3,7 +3,15 @@
 // }
 
 function addToCart(cart, product, quantity) {
-  return [{ ...product, quantity }];
+  if (quantity > 0) {
+    const existingItemIndex = cart.findIndex((item) => item.id === product.id);
+    if (existingItemIndex === -1) {
+      return [{ ...product, quantity }];
+    }
+    const newCart = [...cart];
+    return newCart;
+  }
+  throw new RangeError();
 }
 function changeQuantity() {
   return notImplemented();
