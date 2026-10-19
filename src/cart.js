@@ -28,14 +28,16 @@ function changeQuantity(cart, id, quantity) {
   if (quantity <= 0) {
     throw new RangeError();
   }
-  const product = cart.filter((item) => item.id === id);
-  if (product.length === 0) {
+  const productIndex = cart.findIndex((item) => item.id === id);
+  if (productIndex === -1) {
     return cart;
   }
-  if (quantity > product.stock) {
+  if (quantity > cart[productIndex].stock) {
     throw new RangeError();
   }
-  return cart;
+  const newCart = [...cart];
+  newCart[productIndex] = { ...cart[productIndex], quantity };
+  return newCart;
 }
 function removeFromCart() {
   return notImplemented();
