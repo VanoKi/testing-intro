@@ -24,8 +24,18 @@ function addToCart(cart, product, quantity) {
   };
   return newCart;
 }
-function changeQuantity() {
-  return notImplemented();
+function changeQuantity(cart, id, quantity) {
+  if (quantity <= 0) {
+    throw new RangeError();
+  }
+  const product = cart.filter((item) => item.id === id);
+  if (product.length === 0) {
+    return cart;
+  }
+  if (quantity > product.stock) {
+    throw new RangeError();
+  }
+  return cart;
 }
 function removeFromCart() {
   return notImplemented();
