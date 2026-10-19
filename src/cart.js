@@ -1,6 +1,6 @@
-// function notImplemented() {
-//   throw new Error('Корзина ещё не реализована. Сначала прочитайте тесты.');
-// }
+function notImplemented() {
+  throw new Error("Корзина ещё не реализована. Сначала прочитайте тесты.");
+}
 
 function addToCart(cart, product, quantity) {
   if (quantity > 0) {
@@ -8,7 +8,11 @@ function addToCart(cart, product, quantity) {
     if (existingItemIndex === -1) {
       return [{ ...product, quantity }];
     }
-    const newCart[existingItemIndex] = { ...product, quantity:  cart[existingItemIndex].quantity + quantity}
+    const newCart = [...cart];
+    newCart[existingItemIndex] = {
+      ...cart[existingItemIndex],
+      quantity: cart[existingItemIndex].quantity + quantity,
+    };
     return newCart;
   }
   throw new RangeError();
