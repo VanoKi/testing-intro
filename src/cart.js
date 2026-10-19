@@ -8,7 +8,7 @@ function addToCart(cart, product, quantity) {
     if (existingItemIndex === -1) {
       return [{ ...product, quantity }];
     }
-    const newCart = [...cart];
+    const newCart[existingItemIndex] = { ...product, quantity:  cart[existingItemIndex].quantity + quantity}
     return newCart;
   }
   throw new RangeError();
